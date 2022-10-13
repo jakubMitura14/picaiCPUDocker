@@ -217,14 +217,11 @@ RUN python3.8 -m pip install --no-cache-dir jupyter_http_over_ws ipykernel==5.1.
 #RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 
-RUN python3.8 -m pip install \
-    #itk \
-    #pytorch-ignite==0.4.8 \
+RUN python3.8 -m pip install && \
     PyWavelets==1.3.0 \
     scipy==1.8.1 \
     nibabel==3.2.2 \
     pillow!=8.3.0 \  
-    #tensorboard==2.9.0 \
     scikit-image==0.19.2 \
     tqdm>=4.47.0 \
     lmdb==1.3.0 \
@@ -244,23 +241,18 @@ RUN python3.8 -m pip install \
     types-pkg_resources \
     mypy>=0.790 \
     ninja==1.10.2.3 \
-    #torchvision==0.12.0 \
     opencv-python==4.5.5.64 \
     psutil==5.9.1 \
     Sphinx==3.5.3 \
     recommonmark==0.6.0 \
     sphinx-autodoc-typehints==1.11.1 \
     sphinx-rtd-theme==0.5.2 \
-    # cucim==22.2.1; platform_system == "Linux" \
-    # imagecodecs; platform_system == "Linux" \
-    # tifffile; platform_system == "Linux" \
     pandas==1.4.2 \
     requests==2.27.1 \
     einops==0.4.1 \
     transformers==4.19.2 \
     mlflow==1.26.1 \
     matplotlib!=3.5.0 \
-    #tensorboardX==2.5 \
     types-PyYAML \
     pyyaml==6.0 \
     fire==0.4.0 \
@@ -282,11 +274,10 @@ RUN python3.8 -m pip install \
     tensorflow_addons==0.17.0 \
     ipywidgets==7.7.0 \
     h5py==3.7.0 \
-    #itk-elastix==0.14.1 \
     zenodopy==0.2.0 \
     evalutils==0.3.0 \
     nnunet==1.7.0 \
-    #SimpleITK \
+    SimpleITK \
     git+https://github.com/balbasty/nitorch#egg=nitorch[all] \
     threadpoolctl==3.1.0 \
     batchgenerators==0.24 \
@@ -294,7 +285,6 @@ RUN python3.8 -m pip install \
     git+https://github.com/DIAGNijmegen/picai_baseline \
     git+https://github.com/DIAGNijmegen/picai_prep \
     git+https://github.com/DIAGNijmegen/picai_eval \
-    #https://github.com/DIAGNijmegen/picai_prep/archive/refs/tags/v1.3.2.zip \
     KevinSR==0.1.19 \
     dask==2022.6.0 \
     intensity-normalization[ants] \
@@ -311,13 +301,21 @@ RUN python3.8 -m pip install \
     horovod[pytorch] \
     GPy \
     sklearn \
-    #git+https://github.com/ray-project/ray_lightning \
     fairscale \ 
-    lightning-bolts \
     mysqlclient 
+        #tensorboardX==2.5 \
+
+
     # git+https://github.com/ray-project/ray_lightning
-
-
+    #git+https://github.com/ray-project/ray_lightning \
+    #https://github.com/DIAGNijmegen/picai_prep/archive/refs/tags/v1.3.2.zip \
+    #itk-elastix==0.14.1 \
+    # cucim==22.2.1; platform_system == "Linux" \
+    # imagecodecs; platform_system == "Linux" \
+    # tifffile; platform_system == "Linux" \
+    #torchvision==0.12.0 \
+    #itk \
+    #pytorch-ignite==0.4.8 \
 # RUN python3.8 -m pip install pytorch-lightning-bolts 
 #ENV CUDAToolkit_ROOT=/usr/local/cuda-11.3 
 
@@ -503,7 +501,7 @@ RUN chown ${NB_USER} start.sh
 #     mysql-client-core-8.0
 RUN git config --global --add safe.directory /home/sliceruser/data/piCaiCode
 
-USER ${NB_USER}
+#USER ${NB_USER}
 
 
 # CMD /bin/bash start.sh
