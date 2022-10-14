@@ -217,7 +217,7 @@ RUN python3.8 -m pip install --no-cache-dir jupyter_http_over_ws ipykernel==5.1.
 #RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 
-RUN python3.8 -m pip install --no-cache-dir && \
+RUN python3.8 -m pip install --no-cache-dir \
     SimpleITK \
     PyWavelets==1.3.0 \
     scipy==1.8.1 \
