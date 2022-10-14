@@ -217,7 +217,8 @@ RUN python3.8 -m pip install --no-cache-dir jupyter_http_over_ws ipykernel==5.1.
 #RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 RUN python3.8 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 
-RUN python3.8 -m pip install && \
+RUN python3.8 -m pip install --no-cache-dir && \
+    SimpleITK \
     PyWavelets==1.3.0 \
     scipy==1.8.1 \
     nibabel==3.2.2 \
@@ -317,8 +318,8 @@ RUN python3.8 -m pip install && \
 
 
 # RUN apt-get install python3.8-dev -y
-RUN python3.8 -m pip install 'monai[nibabel, skimage, pillow, tensorboard, gdown, ignite, torchvision, itk, tqdm, lmdb, psutil, cucim, pandas, einops, transformers, mlflow, matplotlib, tensorboardX, tifffile, imagecodecs]'
-RUN python3.8 -m pip install mysqlclient
+RUN python3.8 -m pip install --no-cache-dir 'monai[nibabel, skimage, pillow, tensorboard, gdown, ignite, torchvision, itk, tqdm, lmdb, psutil, cucim, pandas, einops, transformers, mlflow, matplotlib, tensorboardX, tifffile, imagecodecs]'
+RUN python3.8 -m pip install --no-cache-dir mysqlclient
 #host segmentations and baselines
 RUN git clone https://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@github.com/jakubMitura14/piCaiCode.git ${HOME}/data/piCaiCode
 
@@ -358,8 +359,8 @@ RUN mkdir ${HOME}/scripts
 # RUN python3.8 -m pip install SimpleITK-SimpleElastix
 
 #maybe remove if registering?
-RUN python3.8 -m pip install itk
-RUN python3.8 -m pip install SimpleITK
+# RUN python3.8 -m pip install itk
+# RUN python3.8 -m pip install SimpleITK
 
 # ${HOME}/externalRepos/elastix/buildd/SimpleITK-build/Wrapping/Python/_SimpleITK.so
 
