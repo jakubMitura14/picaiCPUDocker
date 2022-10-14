@@ -296,13 +296,9 @@ RUN python3.8 -m pip install && \
     torch-optimizer \
     gspread \
     torchmetrics \
-    ray[tune] \
-    ray[air]\
-    horovod[pytorch] \
     GPy \
     sklearn \
-    fairscale \ 
-    mysqlclient 
+    fairscale 
         #tensorboardX==2.5 \
 
 
@@ -322,7 +318,7 @@ RUN python3.8 -m pip install && \
 
 # RUN apt-get install python3.8-dev -y
 RUN python3.8 -m pip install 'monai[nibabel, skimage, pillow, tensorboard, gdown, ignite, torchvision, itk, tqdm, lmdb, psutil, cucim, pandas, einops, transformers, mlflow, matplotlib, tensorboardX, tifffile, imagecodecs]'
-
+RUN python3.8 -m pip install mysqlclient
 #host segmentations and baselines
 RUN git clone https://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@github.com/jakubMitura14/piCaiCode.git ${HOME}/data/piCaiCode
 
